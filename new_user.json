@@ -1,0 +1,16 @@
+{
+  "UserName": "rajat",
+  "FirstName": "Rajat",
+  "LastName": "Jha",
+  "Emails": ["lewisblack@example.com"],
+  "AddressInfo": [
+    {
+      "Address": "187 Suffolk Ln.",
+      "City": {
+        "Name": "Boise",
+        "CountryRegion": "United States",
+        "Region": "ID"
+      }
+    }
+  ]
+}

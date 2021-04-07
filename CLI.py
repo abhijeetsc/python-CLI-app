@@ -1,4 +1,5 @@
 import fire
+import json
 import pprint
 import requests
 
@@ -23,42 +24,27 @@ def user_filter(firstname):
 def create_user():
     """ To create a new user """
 
+    with open('new_user.json') as json_file:
+        dict_data = json.load(json_file)
+
     url = f"https://services.odata.org/TripPinRESTierService/{API_KEY}/People"
 
-    form_data = {
-        '@odata.type': 'Microsoft.OData.SampleService.Models.TripPin.Person',
-        'UserName': 'abhijeet123',
-        'FirstName': 'Abhijeet',
-        'LastName': 'Chouhan',
-        'Emails': [
-            'abhijeet@example.com'
-        ],
-        'AddressInfo': [
-            {
-                'Address': '23 Suffolk Ln.',
-                'City': {
-                    'Name': 'Boise',
-                    'CountryRegion': 'United States',
-                    'Region': 'NW'
-                }
-            }
-        ]
+    payload = str(dict_data)
+
+    headers = {
+        'Content-Type': 'application/json',
     }
 
-    headers_data = {
-        'OData-Version': '4.0',
-        'Content-Type': 'application/json;odata.metadata=minimal',
-        'Accept': 'application/json',
-    }
+    response = requests.post(url, data=payload, headers=headers)
 
-    response = requests.post(url, data=form_data, headers=headers_data)
-    print(response.status_code)
-    print(response.text)
+    print(f"HTTP {response.status_code}\n")
+    pp.pprint(response.json())
 
 
 def user_detail(id):
     """ To get details of a user via Id(USerName) """
-    url = f"https://services.odata.org/v4/TripPinServiceRW/{API_KEY}/People('{id}')"
+    url = f"https://services.odata.org/TripPinRESTierService/{API_KEY}/People('{id}')"
+
     response = requests.get(url)
     print(f"HTTP {response.status_code}\n")
     if response.status_code == 200:

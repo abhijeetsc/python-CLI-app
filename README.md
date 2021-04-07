@@ -12,7 +12,7 @@ pipenv install
 
 ## Usage
 
-Run CLI.<span>py file and give appropriate arguments to get the desired output.
+Run `CLI.py` file and give appropriate arguments to get the desired output.
 
 1. To get details of an existing user from the REST API.
 
@@ -38,18 +38,10 @@ Run CLI.<span>py file and give appropriate arguments to get the desired output.
    python CLI.py user_filter Scott
    ```
 
-3. Below task is not yet finished and will not work but you can presume the working of this task as descibed below.
-
-   To create a new data on the server we need to pass user's properties as body of the web request. We can save user's properties in a json file and pass this file's name as argument in below command.
+3. To create a new data on the server we need to pass user's properties as body of the web request. We can save user's properties in the **`new_user.json`** file and run below command.
 
    ```bash
-   python CLI.py create_user <jsonfile.json>
-   ```
-
-   example-
-
-   ```bash
-   python CLI.py create_user newuser.json
+   python CLI.py create_user
    ```
 
 ## License
