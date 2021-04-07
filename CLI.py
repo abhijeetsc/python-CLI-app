@@ -11,7 +11,7 @@ API_KEY = '(S(soqbcshubhfoukdhx3mzfmon))'
 def user_filter(firstname):
     """ To filter the data based on the 'FirstName' filter """
 
-    url = f"https://services.odata.org/TripPinRESTierServicse/{API_KEY}/People?$filter=FirstName eq '{firstname}'"
+    url = f"https://services.odata.org/TripPinRESTierService/{API_KEY}/People?$filter=FirstName eq '{firstname}'"
     response = requests.get(url)
 
     print(f"HTTP {response.status_code}\n")
