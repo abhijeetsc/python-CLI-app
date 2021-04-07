@@ -12,7 +12,7 @@ pipenv install
 
 ## Usage
 
-Run `CLI.py` file and give appropriate arguments to get the desired output.
+Run **`CLI.py`** file and give appropriate arguments to get the desired output.
 
 1. To get details of an existing user from the REST API.
 
